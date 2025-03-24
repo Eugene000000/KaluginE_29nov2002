@@ -1,0 +1,658 @@
+{
+	"info": {
+		"_postman_id": "efcfe149-1342-4c9c-8229-7fdab48d7a59",
+		"name": "API для Altaivita",
+		"description": "email: [StartFragmentjaiyden.viggo@thefluent.org](https://mailto:StartFragmentjaiyden.viggo@thefluent.orgEndFragment)  \npassword: password123",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37234182"
+	},
+	"item": [
+		{
+			"name": "Позитивные проверки",
+			"item": [
+				{
+					"name": "Добавление товара через превью",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_products_to_cart_from_preview.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_products_to_cart_from_preview.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение количества товара в корзине",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var quantity = pm.collectionVariables.get(\"quantity\");\r",
+									"\r",
+									"pm.test(\"Новое значение товара было установлено корректно\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.sum_quantity).to.eql(quantity);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "itemID",
+									"value": "{{itemIDinCard}}",
+									"type": "text"
+								},
+								{
+									"key": "action",
+									"value": "update_quantity",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/action_with_basket_on_cart_page.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"action_with_basket_on_cart_page.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товара из корзины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_products_to_cart_from_preview.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_products_to_cart_from_preview.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Негативные проверки",
+			"item": [
+				{
+					"name": "Добавление товара с неверным ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_products_to_cart_from_preview.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_products_to_cart_from_preview.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение количества товара в корзине c неверным ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_products_to_cart_from_preview.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_products_to_cart_from_preview.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товара c неверным ID из корзины",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "StartFragmentjaiyden.viggo@thefluent.org",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "S_CID",
+									"value": "{{CID}}",
+									"type": "text"
+								},
+								{
+									"key": "S_koef",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_cur_code",
+									"value": "rub",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "{{quantity}}",
+									"type": "text"
+								},
+								{
+									"key": "S_customerID",
+									"value": "{{customer_id}}",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "{{product_id}}",
+									"type": "text"
+								},
+								{
+									"key": "LANG_key",
+									"value": "ru",
+									"type": "text"
+								},
+								{
+									"key": "S_wh",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "S_hint_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_products_to_cart_from_preview.php",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_products_to_cart_from_preview.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CID",
+			"value": "c241e167bf07ca40f6dfb074ce5c122c",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://altaivita.ru/engine/cart",
+			"type": "string"
+		},
+		{
+			"key": "customer_id",
+			"value": "380569",
+			"type": "string"
+		},
+		{
+			"key": "product_id",
+			"value": "675",
+			"type": "string"
+		},
+		{
+			"key": "quantity",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "current_sum_quantity",
+			"value": "0"
+		},
+		{
+			"key": "itemIDinCard",
+			"value": "822086",
+			"type": "string"
+		}
+	]
+}
