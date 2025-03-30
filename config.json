@@ -1,0 +1,16 @@
+{
+    "base_url_ui": "https://altaivita.ru/",
+    "base_url_api": "https://altaivita.ru/engine/cart/",
+    "api":{
+        "S_CID": "c241e167bf07ca40f6dfb074ce5c122c",
+        "S_customerID": "380569",
+        "S_productID": "675",
+        "quantity": "1",
+        "S_cur_code": "rub",
+        "S_hint_code": "",
+        "S_koef": "1",
+        "LENG_key": "ru",
+        "S_wh": "1"
+    }
+    
+}
